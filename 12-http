@@ -1,0 +1,22 @@
+// built-in node module - http modul
+const http = require("http");
+
+// inisialisasi fungsi callback server
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.end("Welcome to our home page");
+  }
+  if (req.url === "/about") {
+    res.end("Welcome to our about page");
+  }
+  res.end(`
+  <h1>Oops!</h1>
+  <p>We can't find the page you are looking for.</p>
+  <a href="/">back to Home</a>
+  `);
+});
+
+// port server
+server.listen(5000);
+
+// buka pada browser localhost:5000 untuk melihat outputnya
